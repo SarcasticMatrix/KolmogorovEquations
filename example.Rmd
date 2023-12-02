@@ -1,0 +1,98 @@
+---
+title: "Forward-Backward Kolmogorov Equations Library"
+output:
+  html_notebook
+---
+
+# Introduction
+
+This notebook provides an explanation of the Forward-Backward Kolmogorov Equations library that has been created. The library is designed to solve stochastic differential equations and related Kolmogorov equations.
+
+## Setting Up
+```{r}
+# Setting the working directory
+setwd('C:/Users/utilisateur/Documents/DTU/Première Année 2023-2024/Cours/Stochastic Differential Equations/KolmogorovEquations')
+
+# Sourcing required scripts
+source('fvade.R')
+source('kolmogorov-equations.R')
+```
+
+
+## Parameters
+```{r}
+# Parameters
+xi <- 2
+gamma <- 1/2
+lambda <- 1/2
+
+# Drift and intensity functions
+f <- function(x) lambda * (xi - x)
+g <- function(x) gamma * sqrt(abs(x))
+
+# Diffusivity and its spatial derivative
+D <- function(x) 0.5 * gamma^2 * x
+Dp <- function(x) 0.5 * gamma^2
+
+# Advective flow field
+u <- function(x) f(x) - Dp(x)
+```
+
+# Forward Kolmogorov Equation
+
+```{r}
+result <- forwardkolmogorov(u, D)
+G <- result$G
+phi <- result$phi
+
+# Plotting the solution
+plot(xc, phi, type="l")
+
+# Additional plot details...
+```
+
+## Solving Forward Kolmogorov Equation
+```{r}
+# Initial conditions
+x0 <- xi/4
+phi0 <- numeric(length(xc))
+phi0[sum(xc < x0)] <- 1
+
+# Time grid
+tv <- seq(0, 10, 0.1)
+
+# Solving the Forward Kolmogorov Equation
+PHI <- solve_forwardEquation(tv, phi0, G)
+
+# Plotting the solution
+image.plot(tv, xc, t(PHI))
+```
+# Backward Kolmogorov Equation
+```{r}
+h <- (xc >= 2)
+T <- tail(tv, 1)
+psi <- solve_backwardEquation(tv, h, G)
+
+# Plotting the solution
+image.plot(tv, xc, t(psi))
+
+# Additional plot details...
+```
+# Mean, Variance, and Standard Deviation
+```{r}
+# Computing moments
+EX <- computeMoment(PHI, 1)
+VX <- computeVariance(PHI)
+sX <- computeStandardDeviation(PHI)
+
+# Plotting the results
+plot(tv, EX, lwd=2, ylim=c(0, max(EX + sX)))
+lines(tv, EX + sX, lty="dashed")
+lines(tv, EX - sX, lty="dashed")
+
+# Additional plot details...
+```
+# Conclusion
+This notebook provides an overview of the Forward-Backward Kolmogorov Equations library, its key functions, and visualizations of the solutions. It serves as a guide for users to understand and utilize the capabilities of the library in solving stochastic differential equations.
+
+
