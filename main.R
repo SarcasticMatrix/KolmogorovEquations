@@ -26,9 +26,13 @@ G <- result$G
 phi <- result$phi
 
 x11()
-plot(xc,phi,type="l")
-plot(function(x)dgamma(x,rate=2*lambda/gamma^2,shape=2*lambda*xi/gamma^2),
-     from=0,to=xmax,add=TRUE,col="red")
+plot(xc, phi, main="Forward Kolmogorov Equation Solution", xlab="xc", ylab="phi")
+curve(dgamma(x, rate=2*lambda/gamma^2, shape=2*lambda*xi/gamma^2), 
+      from=0, to=xmax, add=TRUE, col="red", lty=2, lwd=2)
+
+# Ajout d'une légende
+legend("topright", legend=c("Numerical Solution", "Theoretical Solution"),
+       col=c("black", "red"), lty=c(1, 2), lwd=c(1, 2))
 
 ################################################################################
 #### Solve the forward Kolmogorov equation
@@ -55,7 +59,6 @@ image.plot(tv,xc,t(CDF))
 x11()
 plot(xc,PHI[,length(tv)])
 lines(xc,phi)
-
 
 ################################################################################
 #### Mean, variance and standard variation
