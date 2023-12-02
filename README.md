@@ -1,3 +1,3 @@
 # Kolmogorov Equations
 
-Read the *example.pdf* file.
+Read the **example.pdf** file.
