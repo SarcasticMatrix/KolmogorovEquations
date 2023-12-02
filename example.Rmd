@@ -1,8 +1,6 @@
 ---
 title: "Forward-Backward Kolmogorov Equations Library"
 output:
-  html_document:
-    df_print: paged
   pdf_document: default
 ---
 
