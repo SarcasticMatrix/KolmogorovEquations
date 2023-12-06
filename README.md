@@ -76,7 +76,7 @@ legend("topright", legend=c("Numerical Solution", "Theoretical Solution"),
        col=c("black", "red"), lty=c(1, 2), lwd=c(1, 2))
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](RREADME/example_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ``` r
 x0 <- xi/4
@@ -95,7 +95,7 @@ CDF <- apply(PHI*dx, 2, cumsum)
 image.plot(tv, xc, t(CDF), main="Cumulative Distribution Function", xlab="Time", ylab="x")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](README/example_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 ``` r
 plot(xc, PHI[, length(tv)], col="black", 
@@ -110,7 +110,7 @@ legend("topright", legend=c("Numerical Solution", "Theoretical Solution"),
        col=c("black", "red"), lwd=c(2, 2))
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](RREADME/example_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 Solving Forward Kolmogorov Equation
 -----------------------------------
@@ -131,7 +131,7 @@ PHI <- solve_forwardEquation(tv, phi0, G)
 image.plot(tv, xc, t(PHI), main="Density over time", xlab="Time", ylab="xc")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](README/example_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 Mean, Variance, and Standard Deviation
 --------------------------------------
@@ -148,7 +148,7 @@ lines(tv, EX + sX, lty="dashed")
 lines(tv, EX - sX, lty="dashed")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README/example_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 Backward Kolmogorov Equation
 ============================
@@ -162,7 +162,7 @@ psi <- solve_backwardEquation(tv, h, G)
 image.plot(tv, xc, t(psi), main="Backward Kolmogorov Equation Solution", xlab="Time", ylab="xc")
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](README/example_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 Conclusion
 ==========
