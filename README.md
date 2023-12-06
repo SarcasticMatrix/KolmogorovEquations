@@ -19,7 +19,7 @@ In this respect, the Forward Kolmogorov equation is,
 $$\dot \phi(t,y) - [L^* \phi] (t,y) = 0$$
 
 With, the Forward operator, 
-$$[L^* \phi] = - \nabla \cdot \Big(f \phi - \nabla(\frac{1}{2}g g^{\top}\phi)\Big)$$
+$$[L^* \phi] = - \nabla \cdot \Big(f \phi - \nabla(\frac{1}{2} g g^{\top} \phi )\Big)$$
 
 We rewrite the forward equation in a advection-diffusion form, writing $u = f - \nabla D$ and $D = frac{1}{2}g g^{\top}$, 
 $$\dot \phi = - \nabla \cdot (u\phi - D \nabla \phi)$$
