@@ -4,12 +4,17 @@ Introduction
 This R notebook shows an example of using the R library *kolmogorov-equations.R*. The library is designed to solve stochastic differential equations and related Kolmogorov equations,
 $$dX_t = f(X_t,t)dt + g(X_t,t)dB_t$$
 
-We suppose existence and uniqueness of a solution of this SDE. The Backward Kolmogorov equation is then written as, 
-$$\dot \psi(s,x) + [L \psi] (s,x) = 0, \quad s < t$$
+We suppose existence and uniqueness of a solution of this SDE. 
 
+Backward Equation
+-----------------
 with the terminal condition $\psi(t,x)=h(x)$ and the backward Kolmogorov operator, 
 $$[L\psi]=\nabla \psi \cdot f + \frac{1}{2} Tr\Big( g^\top \mathcal{H}_\psi g\Big).$$
+The Backward Kolmogorov equation is then written as, 
+$$\dot \psi(s,x) + [L \psi] (s,x) = 0, \quad s < t$$
 
+Forward Equation
+----------------
 In this respect, the Forward Kolmogorov equation is, 
 $$\dot \phi(t,y) - [L^* \phi] (t,y) = 0$$
 
@@ -21,6 +26,9 @@ $$\dot \phi = - \nabla \cdot (u\phi - D \nabla \phi)$$
 
 Thus, the stationary (w.r.t the time) forward equation ruling $\rho$ is, 
 $$[L^* \rho] =  - \nabla \cdot (u\rho - D \nabla \rho) = 0$$
+
+The Library
+============
 
 Setting Up
 ----------
