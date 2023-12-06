@@ -76,7 +76,7 @@ legend("topright", legend=c("Numerical Solution", "Theoretical Solution"),
        col=c("black", "red"), lty=c(1, 2), lwd=c(1, 2))
 ```
 
-![](README/example_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ``` r
 x0 <- xi/4
@@ -173,5 +173,4 @@ solutions. It serves as a guide for users to understand and utilize the
 capabilities of the library in solving stochastic differential
 equations.
 
-// Rscript -e “rmarkdown::render(‘example.Rmd’, output\_format =
-‘md\_document’)”
+// Rscript -e “rmarkdown::render(‘example.Rmd’, output\_format = ‘md\_document’)”
