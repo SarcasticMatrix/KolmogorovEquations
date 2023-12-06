@@ -2,7 +2,7 @@ library(SDEtools)
 library(Matrix)
 library(fields)
 
-source('fvade.R')
+source('fvade/fvade.R')
 
 #### Global variables
 ## Spatial grid
