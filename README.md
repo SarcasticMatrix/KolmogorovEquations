@@ -1,10 +1,25 @@
 Introduction
 ============
 
-This notebook provides an explanation of the Forward-Backward Kolmogorov
-Equations library that has been created. The library is designed to
-solve stochastic differential equations and related Kolmogorov
-equations.
+This R notebook shows an example of using the R library
+*kolmogorov-equations.R*. The library is designed to solve stochastic
+differential equations and related Kolmogorov equations,
+*d**X*<sub>*t*</sub> = *f*(*X*<sub>*t*</sub>, *t*)*d**t* + *g*(*X*<sub>*t*</sub>, *t*)*d**B*<sub>*t*</sub>
+We suppose existence and uniqueness of a solution of this SDE. The
+Backward Kolmogorov equation is then written as,
+*ψ̇*(*s*, *x*) + \[*L**ψ*\](*s*, *x*) = 0, *s* &lt; *t*
+with the terminal condition *ψ*(*t*, *x*) = *h*(*x*) and the backward
+Kolmogorov operator,
+$$\[L\\psi\]=\\nabla \\psi \\cdot f + \\frac{1}{2} Tr\\Big( g^\\top \\mathcal{H}\_\\psi g\\Big).$$
+In this respect, the Forward Kolmogorov equation is,
+*ϕ̇*(*t*, *y*) − \[*L*<sup>\*</sup>*ϕ*\](*t*, *y*) = 0
+With, the Forward operator,
+$$\[L^\*\\phi\] = - \\nabla \\cdot \\Big(f \\phi - \\nabla(\\frac{1}{2}g g^{\\top}\\phi)\\Big)$$
+We rewrite the forward equation in a advection-diffusion form, writing
+*u* = *f* − ∇*D* and *D* = *f**r**a**c*12*g**g*<sup>⊤</sup>,
+*ϕ̇* =  − ∇ ⋅ (*u**ϕ* − *D*∇*ϕ*)
+Thus, the stationary (w.r.t the time) forward equation ruling *ρ* is,
+\[*L*<sup>\*</sup>*ρ*\] =  − ∇ ⋅ (*u**ρ* − *D*∇*ρ*) = 0
 
 Setting Up
 ----------
@@ -50,7 +65,7 @@ legend("topright", legend=c("Numerical Solution", "Theoretical Solution"),
        col=c("black", "red"), lty=c(1, 2), lwd=c(1, 2))
 ```
 
-![](example_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ``` r
 x0 <- xi/4
@@ -69,7 +84,7 @@ CDF <- apply(PHI*dx, 2, cumsum)
 image.plot(tv, xc, t(CDF), main="Cumulative Distribution Function", xlab="Time", ylab="x")
 ```
 
-![](example_files/figure-markdown_github/unnamed-chunk-4-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-4-1.png)
 
 ``` r
 plot(xc, PHI[, length(tv)], col="black", 
@@ -84,7 +99,7 @@ legend("topright", legend=c("Numerical Solution", "Theoretical Solution"),
        col=c("black", "red"), lwd=c(2, 2))
 ```
 
-![](example_files/figure-markdown_github/unnamed-chunk-5-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-5-1.png)
 
 Solving Forward Kolmogorov Equation
 -----------------------------------
@@ -105,7 +120,7 @@ PHI <- solve_forwardEquation(tv, phi0, G)
 image.plot(tv, xc, t(PHI), main="Density over time", xlab="Time", ylab="xc")
 ```
 
-![](example_files/figure-markdown_github/unnamed-chunk-6-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-6-1.png)
 
 Mean, Variance, and Standard Deviation
 --------------------------------------
@@ -122,7 +137,7 @@ lines(tv, EX + sX, lty="dashed")
 lines(tv, EX - sX, lty="dashed")
 ```
 
-![](example_files/figure-markdown_github/unnamed-chunk-7-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-7-1.png)
 
 Backward Kolmogorov Equation
 ============================
@@ -136,7 +151,7 @@ psi <- solve_backwardEquation(tv, h, G)
 image.plot(tv, xc, t(psi), main="Backward Kolmogorov Equation Solution", xlab="Time", ylab="xc")
 ```
 
-![](example_files/figure-markdown_github/unnamed-chunk-8-1.png)
+![](README_files/figure-markdown_github/unnamed-chunk-8-1.png)
 
 Conclusion
 ==========
@@ -146,3 +161,6 @@ Equations library, its key functions, and visualizations of the
 solutions. It serves as a guide for users to understand and utilize the
 capabilities of the library in solving stochastic differential
 equations.
+
+// Rscript -e “rmarkdown::render(‘example.Rmd’, output\_format =
+‘md\_document’)”

@@ -145,4 +145,4 @@ image.plot(tv, xc, t(psi), main="Backward Kolmogorov Equation Solution", xlab="T
 
 This notebook provides an overview of the Forward-Backward Kolmogorov Equations library, its key functions, and visualizations of the solutions. It serves as a guide for users to understand and utilize the capabilities of the library in solving stochastic differential equations.
 
-
+// Rscript -e "rmarkdown::render('README.Rmd', output_format = 'md_document')"
