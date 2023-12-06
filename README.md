@@ -1,7 +1,7 @@
 Introduction
 ============
 
-This R notebook shows an example of using the R library *kolmogorov-equations.R*. The library is designed to solve stochastic differential equations and related Kolmogorov equations,
+This R notebook shows an example of using the 'R' library *kolmogorov-equations.R*. The library is designed to solve stochastic differential equations and related Kolmogorov equations,
 $$dX_t = f(X_t,t)dt + g(X_t,t)dB_t$$
 
 We suppose existence and uniqueness of a solution of this SDE. The Backward Kolmogorov equation is then written as, 
