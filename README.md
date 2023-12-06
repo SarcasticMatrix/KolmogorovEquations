@@ -76,7 +76,7 @@ legend("topright", legend=c("Numerical Solution", "Theoretical Solution"),
        col=c("black", "red"), lty=c(1, 2), lwd=c(1, 2))
 ```
 
-![](README_files/figure-markdown_github/unnamed-chunk-3-1.png)
+![](README/example_files/figure-markdown_github/unnamed-chunk-3-1.png)
 
 ``` r
 x0 <- xi/4
