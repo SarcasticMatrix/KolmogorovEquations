@@ -1,25 +1,26 @@
 Introduction
 ============
 
-This R notebook shows an example of using the R library
-*kolmogorov-equations.R*. The library is designed to solve stochastic
-differential equations and related Kolmogorov equations,
-*d**X*<sub>*t*</sub> = *f*(*X*<sub>*t*</sub>, *t*)*d**t* + *g*(*X*<sub>*t*</sub>, *t*)*d**B*<sub>*t*</sub>
-We suppose existence and uniqueness of a solution of this SDE. The
-Backward Kolmogorov equation is then written as,
-*ψ̇*(*s*, *x*) + \[*L**ψ*\](*s*, *x*) = 0, *s* &lt; *t*
-with the terminal condition *ψ*(*t*, *x*) = *h*(*x*) and the backward
-Kolmogorov operator,
-$$\[L\\psi\]=\\nabla \\psi \\cdot f + \\frac{1}{2} Tr\\Big( g^\\top \\mathcal{H}\_\\psi g\\Big).$$
-In this respect, the Forward Kolmogorov equation is,
-*ϕ̇*(*t*, *y*) − \[*L*<sup>\*</sup>*ϕ*\](*t*, *y*) = 0
-With, the Forward operator,
-$$\[L^\*\\phi\] = - \\nabla \\cdot \\Big(f \\phi - \\nabla(\\frac{1}{2}g g^{\\top}\\phi)\\Big)$$
-We rewrite the forward equation in a advection-diffusion form, writing
-*u* = *f* − ∇*D* and *D* = *f**r**a**c*12*g**g*<sup>⊤</sup>,
-*ϕ̇* =  − ∇ ⋅ (*u**ϕ* − *D*∇*ϕ*)
-Thus, the stationary (w.r.t the time) forward equation ruling *ρ* is,
-\[*L*<sup>\*</sup>*ρ*\] =  − ∇ ⋅ (*u**ρ* − *D*∇*ρ*) = 0
+This R notebook shows an example of using the R library *kolmogorov-equations.R*. The library is designed to solve stochastic differential equations and related Kolmogorov equations,
+$$dX_t = f(X_t,t)dt + g(X_t,t)dB_t$$
+
+We suppose existence and uniqueness of a solution of this SDE. The Backward Kolmogorov equation is then written as, 
+$$\dot \psi(s,x) + [L \psi] (s,x) = 0, \quad s < t$$
+
+with the terminal condition $\psi(t,x)=h(x)$ and the backward Kolmogorov operator, 
+$$[L\psi]=\nabla \psi \cdot f + \frac{1}{2} Tr\Big( g^\top \mathcal{H}_\psi g\Big).$$
+
+In this respect, the Forward Kolmogorov equation is, 
+$$\dot \phi(t,y) - [L^*\phi](t,y)=0$$
+
+With, the Forward operator, 
+$$[L^*\phi] = - \nabla \cdot \Big(f \phi - \nabla(\frac{1}{2}g g^{\top}\phi)\Big)$$
+
+We rewrite the forward equation in a advection-diffusion form, writing $u = f - \nabla D$ and $D = frac{1}{2}g g^{\top}$, 
+$$\dot \phi = - \nabla \cdot (u\phi - D \nabla \phi)$$
+
+Thus, the stationary (w.r.t the time) forward equation ruling $\rho$ is, 
+$$[L^* \rho] =  - \nabla \cdot (u\rho - D \nabla \rho) = 0$$
 
 Setting Up
 ----------
