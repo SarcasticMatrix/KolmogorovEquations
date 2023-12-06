@@ -2,7 +2,6 @@ library(SDEtools)
 library(Matrix)
 library(fields)
 
-setwd('C:/Users/utilisateur/Documents/DTU/Première Année 2023-2024/Cours/Stochastic Differential Equations/KolmogorovEquations')
 source('fvade.R')
 
 #### Global variables

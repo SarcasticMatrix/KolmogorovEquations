@@ -1,7 +1,10 @@
 ---
 title: "Forward-Backward Kolmogorov Equations Library"
-output:
-  pdf_document: default
+author: Théophile SCHMUTZ
+date: December 6, 2023
+output: 
+  md_document:
+    variant: markdown_github
 ---
 
 # Introduction
@@ -11,9 +14,6 @@ This notebook provides an explanation of the Forward-Backward Kolmogorov Equatio
 ## Setting Up
 
 ```{r message=FALSE, warning=FALSE, paged.print=FALSE}
-# Setting the working directory
-setwd('C:/Users/utilisateur/Documents/DTU/Première Année 2023-2024/Cours/Stochastic Differential Equations/KolmogorovEquations')
-
 # Sourcing required scripts
 source('kolmogorov-equations.R')
 ```
