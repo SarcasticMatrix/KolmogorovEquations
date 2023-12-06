@@ -11,7 +11,7 @@ with the terminal condition $\psi(t,x)=h(x)$ and the backward Kolmogorov operato
 $$[L\psi]=\nabla \psi \cdot f + \frac{1}{2} Tr\Big( g^\top \mathcal{H}_\psi g\Big).$$
 
 In this respect, the Forward Kolmogorov equation is, 
-$$\dot \phi(t,y) - [L^* \phi](t,y)=0$$
+$$\dot \phi(t,y) - [L^* \phi] (t,y) = 0$$
 
 With, the Forward operator, 
 $$[L^*\phi] = - \nabla \cdot \Big(f \phi - \nabla(\frac{1}{2}g g^{\top}\phi)\Big)$$
